@@ -25,7 +25,29 @@ class _HomeState extends State<Home> {
               ),
               child: Container(
                 color: Colors.white,
+                child: Padding(
+                  padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
+                  child: SafeArea(
+                    child: Column(
+                      children: <Widget>[
+                        CircleAvatar(
+                          backgroundColor: Colors.black12,
+                        ),
+                        Text('frwaeeeeeee')
+                      ],
+                    ),
+                  ),
+                ),
               ),
+            ),
+          ),
+          Positioned(
+            top: height * 0.38,
+            left: 0,
+            right: 0,
+            child: Container(
+              color: Colors.red,
+              height: height * 0.7
             ),
           ),
         ],
