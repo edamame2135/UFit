@@ -1,6 +1,6 @@
-# pretty
+# UFit
 
-A new Flutter application.
+Fitness application in Flutter
 
 ## Getting Started
 
