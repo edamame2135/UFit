@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'bottombar.dart';
 
@@ -24,6 +25,7 @@ class ProfileScreen extends StatelessWidget {
                   padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
                   child: SafeArea(
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -33,10 +35,15 @@ class ProfileScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        CircleAvatar(
-                          backgroundColor: Colors.black12,
+                        Container(
+                          color: Colors.white,
+                          height: height * 0.17,
+                          width: height * 0.17,
+                          child: CircleAvatar(
+                            backgroundImage: AssetImage('assets/tomnook.png'),
+                            backgroundColor: Colors.white,
+                          ),
                         ),
-                        Text('frwaeeeeeee')
                       ],
                     ),
                   ),
@@ -49,8 +56,37 @@ class ProfileScreen extends StatelessWidget {
             left: 0,
             right: 0,
             child: Container(
-                color: Colors.red,
-                height: height * 0.7
+              color: Colors.red,
+              height: height * 0.7,
+              child: CustomScrollView(
+                slivers: <Widget>[
+                  SliverAppBar(
+                    pinned: true,
+                    expandedHeight: 120.0,
+                    flexibleSpace: FlexibleSpaceBar(
+                        title: Text('wassup')
+                    ),
+                  ),
+                  SliverGrid(
+                    gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                      maxCrossAxisExtent: 200.0,
+                      mainAxisSpacing: 13.0,
+                      crossAxisSpacing: 8.0,
+                      childAspectRatio: 0.75,
+                    ),
+                    delegate: SliverChildBuilderDelegate(
+                          (BuildContext context, int index) {
+                        return Container(
+                          alignment: Alignment.center,
+                          color: Colors.teal[100 * (index % 9)],
+                          child: Text('Grid Item $index'),
+                        );
+                      },
+                      childCount: 40
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],

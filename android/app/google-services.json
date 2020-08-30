@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "218293089630",
+    "firebase_url": "https://ufit-9c734.firebaseio.com",
+    "project_id": "ufit-9c734",
+    "storage_bucket": "ufit-9c734.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:218293089630:android:b95f5916ec78011ad94bcf",
+        "android_client_info": {
+          "package_name": "com.edxie.pretty"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "218293089630-le1bslabeqb5uu83r7u0ass5as65innt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQiaYeWOobpxHjGNOfE2nh_x5XApov-FU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "218293089630-le1bslabeqb5uu83r7u0ass5as65innt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
