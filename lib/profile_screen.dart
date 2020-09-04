@@ -33,16 +33,33 @@ class ProfileScreen extends StatelessWidget {
                             IconButton(
                               icon: Icon(Icons.settings)
                             ),
+                        
                           ],
                         ),
-                        Container(
-                          color: Colors.white,
-                          height: height * 0.17,
-                          width: height * 0.17,
-                          child: CircleAvatar(
-                            backgroundImage: AssetImage('assets/tomnook.png'),
-                            backgroundColor: Colors.white,
-                          ),
+                        Row(
+                          children: [
+                            Container(               
+                              color: Colors.white,
+                              height: height * 0.17,
+                              width: height * 0.17,
+                              child: CircleAvatar(
+                                backgroundImage: AssetImage('assets/tomnook.png'),
+                                backgroundColor: Colors.white,
+                              ),
+                            ),
+                            Container(
+                              child: Align(
+                                alignment: Alignment.topRight,
+                                child: Text(
+                                  'Tom Nooky',
+                                  style: TextStyle(
+                                    fontSize: 20.0,
+                                  )
+                                )
+                                
+                              )
+                            )
+                          ],
                         ),
                       ],
                     ),
