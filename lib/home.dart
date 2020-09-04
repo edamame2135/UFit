@@ -31,10 +31,14 @@ class _HomeState extends State<Home> {
                   child: SafeArea(
                     child: Column(
                       children: <Widget>[
-                        CircleAvatar(
+                        SizedBox(height: 20.0),
+                        CircleAvatar(     
+                          backgroundImage: AssetImage('assets/tomnook.png'),
                           backgroundColor: Colors.black12,
+                          radius: 40.0,
                         ),
-                        Text('frwaeeeeeee')
+                        SizedBox(height: 10.0),
+                        Text('Tom Nooky')
                       ],
                     ),
                   ),
