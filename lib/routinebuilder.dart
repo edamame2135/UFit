@@ -8,9 +8,7 @@ class RoutineBuilderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFE9E9E9),
-      body: RoutineScroll()
-    );
+        backgroundColor: const Color(0xFFE9E9E9), body: RoutineScroll());
   }
 }
 
@@ -34,29 +32,32 @@ class _RoutineScrollState extends State<RoutineScroll> {
     List<dynamic> responseList = WORKOUT_DATA;
     List<Widget> listItems = [];
     responseList.forEach((card) {
-      listItems.add(Container(
-        height: 150,
-        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20.0)), color: Colors.white, boxShadow: [
-          BoxShadow(color: Colors.black.withAlpha(100), blurRadius: 10.0),
-        ]),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+      listItems.add(GestureDetector(
+        onTap: () {
+          print("yerr");
+        },
+        child: Container(
+          height: 150,
+          margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(20.0)),
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(color: Colors.black.withAlpha(100), blurRadius: 10.0),
+              ]),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text(
-                    card["name"]
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(card["name"]),
+                    ],
                   ),
-                ],
-              ),
-              Text(
-                card["image"]
-              ),
-            ]
+                  Text(card["image"]),
+                ]),
           ),
         ),
       ));
@@ -80,12 +81,11 @@ class _RoutineScrollState extends State<RoutineScroll> {
           categoriesScroller,
           Expanded(
             child: ListView.builder(
-              itemCount: itemsData.length,
-              physics: BouncingScrollPhysics(),
-              itemBuilder: (context, index) {
-                return itemsData[index];
-              }
-            ),
+                itemCount: itemsData.length,
+                physics: BouncingScrollPhysics(),
+                itemBuilder: (context, index) {
+                  return itemsData[index];
+                }),
           ),
         ],
       ),
@@ -98,10 +98,8 @@ class CategoriesScroller extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double categoryHeight = MediaQuery
-        .of(context)
-        .size
-        .height * 0.30 - 50;
+    final double categoryHeight =
+        MediaQuery.of(context).size.height * 0.30 - 50;
     return SingleChildScrollView(
       physics: BouncingScrollPhysics(),
       scrollDirection: Axis.horizontal,
@@ -116,7 +114,8 @@ class CategoriesScroller extends StatelessWidget {
                 width: 150,
                 margin: EdgeInsets.only(right: 20),
                 height: categoryHeight,
-                decoration: BoxDecoration(color: Colors.orange.shade400,
+                decoration: BoxDecoration(
+                    color: Colors.orange.shade400,
                     borderRadius: BorderRadius.all(Radius.circular(20.0))),
                 child: Padding(
                   padding: const EdgeInsets.all(12.0),
@@ -125,7 +124,8 @@ class CategoriesScroller extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         "Most\nFavorites",
-                        style: TextStyle(fontSize: 25,
+                        style: TextStyle(
+                            fontSize: 25,
                             color: Colors.white,
                             fontWeight: FontWeight.bold),
                       ),
@@ -144,7 +144,8 @@ class CategoriesScroller extends StatelessWidget {
                 width: 150,
                 margin: EdgeInsets.only(right: 20),
                 height: categoryHeight,
-                decoration: BoxDecoration(color: Colors.blue.shade400,
+                decoration: BoxDecoration(
+                    color: Colors.blue.shade400,
                     borderRadius: BorderRadius.all(Radius.circular(20.0))),
                 child: Container(
                   child: Padding(
@@ -154,7 +155,8 @@ class CategoriesScroller extends StatelessWidget {
                       children: <Widget>[
                         Text(
                           "Newest",
-                          style: TextStyle(fontSize: 25,
+                          style: TextStyle(
+                              fontSize: 25,
                               color: Colors.white,
                               fontWeight: FontWeight.bold),
                         ),
@@ -184,7 +186,8 @@ class CategoriesScroller extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         "Super\nSaving",
-                        style: TextStyle(fontSize: 25,
+                        style: TextStyle(
+                            fontSize: 25,
                             color: Colors.white,
                             fontWeight: FontWeight.bold),
                       ),
@@ -206,40 +209,3 @@ class CategoriesScroller extends StatelessWidget {
     );
   }
 }
-
-
-
-/*
-      child: CustomScrollView(
-        slivers: <Widget>[
-          SliverAppBar(
-            pinned: true,
-            expandedHeight: 120.0,
-            flexibleSpace: FlexibleSpaceBar(
-                title: Text('Add a workout!')
-            ),
-          ),
-          SliverGrid(
-            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 200.0,
-              mainAxisSpacing: 13.0,
-              crossAxisSpacing: 8.0,
-              childAspectRatio: 0.75,
-            ),
-            delegate: SliverChildBuilderDelegate(
-                  (BuildContext context, int index) {
-                return Container(
-                  alignment: Alignment.center,
-                  padding: _edgeInsetsForIndex(index),
-                  color: Colors.teal[100 * (index % 9)],
-                  child: Image.asset(
-                    assetNames[index % assetNames.length],
-                  ),
-                );
-              },
-              childCount: 40,
-            ),
-          ),
-        ],
-      ),
-      */
