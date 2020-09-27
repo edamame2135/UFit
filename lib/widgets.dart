@@ -8,9 +8,10 @@ class WorkoutCard extends StatefulWidget {
 }
 
 class _WorkoutCardState extends State<WorkoutCard> {
-  @override
+ 
   dynamic card;
 
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
