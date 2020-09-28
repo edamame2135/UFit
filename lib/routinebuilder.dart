@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/foundation.dart';
+import 'package:pretty/widgets.dart';
 import 'bottombar.dart';
 import 'constants.dart';
+import 'globals.dart' as globals;
 
 class RoutineBuilderScreen extends StatelessWidget {
   @override
@@ -18,12 +20,6 @@ class RoutineScroll extends StatefulWidget {
 }
 
 class _RoutineScrollState extends State<RoutineScroll> {
-  final List<String> assetNames = [
-    'assets/brady-bellini-212790-unsplash.jpg',
-    'assets/anton-repponen-99530-unsplash.jpg',
-    'assets/kevin-cochran-524957-unsplash.jpg',
-    'assets/meng-ji-102492-unsplash.jpg',
-  ];
 
   final CategoriesScroller categoriesScroller = CategoriesScroller();
   List<Widget> itemsData = [];
@@ -32,35 +28,7 @@ class _RoutineScrollState extends State<RoutineScroll> {
     List<dynamic> responseList = WORKOUT_DATA;
     List<Widget> listItems = [];
     responseList.forEach((card) {
-      listItems.add(GestureDetector(
-        onTap: () {
-          print("yerr");
-        },
-        child: Container(
-          height: 150,
-          margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(20.0)),
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow(color: Colors.black.withAlpha(100), blurRadius: 10.0),
-              ]),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(card["name"]),
-                    ],
-                  ),
-                  Text(card["image"]),
-                ]),
-          ),
-        ),
-      ));
+      listItems.add(WorkoutCard(card));
     });
     setState(() {
       itemsData = listItems;
