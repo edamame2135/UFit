@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/foundation.dart';
+import 'package:pretty/widgets.dart';
 import 'globals.dart' as globals;
 
 class WorkoutCatelog extends StatefulWidget {
+
+  final String yurr;
+  const WorkoutCatelog(this.yurr);
+
   @override
   _WorkoutCatelogState createState() => _WorkoutCatelogState();
 }
@@ -36,11 +41,11 @@ class _WorkoutCatelogState extends State<WorkoutCatelog> {
                         SizedBox(height: 20.0),
                         CircleAvatar(
                           backgroundImage: AssetImage('assets/tomnook.png'),
-                          backgroundColor: Colors.black12,
+                          backgroundColor: Colors.red,
                           radius: 40.0,
                         ),
                         SizedBox(height: 10.0),
-                        Text('Tom Nooky')
+                        Text(widget.yurr),
                       ],
                     ),
                   ),
@@ -71,6 +76,20 @@ class _WorkoutCatelogState extends State<WorkoutCatelog> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class WorkoutCard extends StatefulWidget {
+  @override
+  _WorkoutCardState createState() => _WorkoutCardState();
+}
+
+class _WorkoutCardState extends State<WorkoutCard> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      
     );
   }
 }

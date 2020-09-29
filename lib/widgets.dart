@@ -2,21 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/foundation.dart';
 import 'globals.dart' as globals;
+import 'workout_category.dart';
 
-class WorkoutCard extends StatefulWidget {
+class CategoryCard extends StatefulWidget {
   final dynamic card;
-  const WorkoutCard(this.card);
+  const CategoryCard(this.card);
 
   @override
-  _WorkoutCardState createState() => _WorkoutCardState();
+  _CategoryCardState createState() => _CategoryCardState();
 }
 
-class _WorkoutCardState extends State<WorkoutCard> {
+class _CategoryCardState extends State<CategoryCard> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print("ayeee");
+        Navigator.push(context,
+        MaterialPageRoute(builder: (context) => WorkoutCatelog(widget.card["name"]))
+        );
       },
       child: Container(
         height: 150,

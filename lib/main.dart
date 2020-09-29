@@ -19,7 +19,6 @@ class MyApp extends StatelessWidget {
       home: LoginScreen(),
       routes: {
         '/homescreen': (context) => BotBar(),
-        '/catelog': (context) => WorkoutCatelog()
       }
     );
   }

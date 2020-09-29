@@ -28,7 +28,7 @@ class _RoutineScrollState extends State<RoutineScroll> {
     List<dynamic> responseList = WORKOUT_DATA;
     List<Widget> listItems = [];
     responseList.forEach((card) {
-      listItems.add(WorkoutCard(card));
+      listItems.add(CategoryCard(card));
     });
     setState(() {
       itemsData = listItems;
