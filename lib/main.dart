@@ -5,6 +5,8 @@ import 'login.dart';
 import 'home.dart';
 import 'routinebuilder.dart';
 import 'bottombar.dart';
+import 'workout_category.dart';
+import 'widgets.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +18,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: LoginScreen(),
       routes: {
-        '/homescreen': (context) => BotBar()
+        '/homescreen': (context) => BotBar(),
+        '/catelog': (context) => WorkoutCatelog()
       }
     );
   }
