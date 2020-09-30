@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/foundation.dart';
 import 'globals.dart' as globals;
 import 'workout_category.dart';
+import 'constants.dart';
 
 class CategoryCard extends StatefulWidget {
   final dynamic card;
@@ -42,14 +43,6 @@ class _CategoryCardState extends State<CategoryCard> {
                     Text(widget.card["name"]),
                   ],
                 ),
-                Material(
-                  child: IconButton(
-                    icon: Icon(Icons.add),
-                    onPressed: () {
-                      globals.itemsData.add(RoutineCard(widget.card["name"]));
-                    },
-                  ),
-                ),
               ]),
         ),
       ),
@@ -57,32 +50,20 @@ class _CategoryCardState extends State<CategoryCard> {
   }
 }
 
-class MyRoutineList extends StatefulWidget {
-  @override
-  _MyRoutineListState createState() => _MyRoutineListState();
-}
-
-class _MyRoutineListState extends State<MyRoutineList> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
-class RoutineCard extends StatefulWidget {
-  final dynamic workout;
-  const RoutineCard(this.workout);
+class WorkoutCard extends StatefulWidget {
+  final Workout workout;
+  const WorkoutCard(this.workout);
 
   @override
-  _RoutineCardState createState() => _RoutineCardState();
+  _WorkoutCardState createState() => _WorkoutCardState();
 }
 
-class _RoutineCardState extends State<RoutineCard> {
+class _WorkoutCardState extends State<WorkoutCard> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print("yerr");
+        print("and im back up in my cypher mode! oo huh wait");
       },
       child: Container(
         height: 150,
@@ -101,13 +82,65 @@ class _RoutineCardState extends State<RoutineCard> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(widget.workout),
+                    Text(widget.workout.name),
                   ],
                 ),
-                Text(widget.workout),
+                Material(
+                  child: IconButton(
+                    icon: Icon(Icons.add),
+                    onPressed: () {
+                      globals.itemsData.add(widget.workout);
+                    },
+                  )
+                ),
               ]),
         ),
       ),
     );
   }
 }
+
+class RoutineCard extends StatefulWidget {
+  final Workout workout;
+  const RoutineCard(this.workout);
+
+  @override
+  _RoutineCardState createState() => _RoutineCardState();
+}
+
+class _RoutineCardState extends State<RoutineCard> {
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        print("yrr");
+      },
+      child: Container(
+        height: 150,
+        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(20.0)),
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(color: Colors.black.withAlpha(100), blurRadius: 10.0),
+            ]),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(widget.workout.name),
+                  ],
+                ),
+                Text(widget.workout.desc),
+              ]),
+        ),
+      ),
+    );
+  }
+}
+
+

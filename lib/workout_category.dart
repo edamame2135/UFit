@@ -3,17 +3,38 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/foundation.dart';
 import 'package:pretty/widgets.dart';
 import 'globals.dart' as globals;
+import 'widgets.dart';
+import 'constants.dart';
 
 class WorkoutCatelog extends StatefulWidget {
 
-  final String yurr;
-  const WorkoutCatelog(this.yurr);
+  final String category;
+  const WorkoutCatelog(this.category);
 
   @override
   _WorkoutCatelogState createState() => _WorkoutCatelogState();
 }
 
 class _WorkoutCatelogState extends State<WorkoutCatelog> {
+
+  List<Widget> workoutsList = [];
+
+  void getWorkouts() {
+    List<Workout> workoutData =  WORKOUT_CATELOG[widget.category];
+    List<Widget> workouts = [];
+    workoutData.forEach((workout) {
+      workouts.add(WorkoutCard(workout));
+    });
+    setState(() {
+      workoutsList = workouts;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getWorkouts();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +66,7 @@ class _WorkoutCatelogState extends State<WorkoutCatelog> {
                           radius: 40.0,
                         ),
                         SizedBox(height: 10.0),
-                        Text(widget.yurr),
+                        Text(widget.category),
                       ],
                     ),
                   ),
@@ -64,10 +85,10 @@ class _WorkoutCatelogState extends State<WorkoutCatelog> {
                 children: <Widget>[
                   Expanded(
                     child: ListView.builder(
-                        itemCount: globals.itemsData.length,
+                        itemCount: workoutsList.length,
                         physics: BouncingScrollPhysics(),
                         itemBuilder: (context, index) {
-                          return globals.itemsData[index];
+                          return workoutsList[index];
                         }),
                   ),
                 ],
@@ -80,16 +101,4 @@ class _WorkoutCatelogState extends State<WorkoutCatelog> {
   }
 }
 
-class WorkoutCard extends StatefulWidget {
-  @override
-  _WorkoutCardState createState() => _WorkoutCardState();
-}
 
-class _WorkoutCardState extends State<WorkoutCard> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      
-    );
-  }
-}

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'bottombar.dart';
 import 'constants.dart';
 import 'globals.dart' as globals;
+import 'widgets.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -10,6 +11,24 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   
+  List<Widget> routine = [];
+
+  void getRoutine() {
+    List<Workout> myRoutine = globals.itemsData;
+    List<Widget> temp = [];
+    myRoutine.forEach((workout) {
+      temp.add(RoutineCard(workout));
+    });
+    setState(() {
+      routine = temp;
+    });    
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getRoutine();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +60,7 @@ class _HomeState extends State<Home> {
                           radius: 40.0,
                         ),
                         SizedBox(height: 10.0),
-                        Text('Tom Nooky')
+                        Text('TomNooky')
                       ],
                     ),
                   ),
@@ -60,10 +79,10 @@ class _HomeState extends State<Home> {
                 children: <Widget>[
                   Expanded(
                     child: ListView.builder(
-                        itemCount: globals.itemsData.length,
+                        itemCount: routine.length,
                         physics: BouncingScrollPhysics(),
                         itemBuilder: (context, index) {
-                          return globals.itemsData[index];
+                          return routine[index];
                         }),
                   ),
                 ],

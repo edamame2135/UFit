@@ -21,6 +21,7 @@ class _BotBarState extends State<BotBar> {
       _currentIndex = index;
     });
   }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
