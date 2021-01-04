@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/foundation.dart';
-import 'package:pretty/widgets.dart';
+import 'package:pretty/screens/home/widgets.dart';
 import 'bottombar.dart';
 import 'constants.dart';
 import 'globals.dart' as globals;

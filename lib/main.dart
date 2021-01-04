@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:pretty/routinebuilder.dart';
-import 'profile_screen.dart';
-import 'login.dart';
-import 'home.dart';
-import 'routinebuilder.dart';
-import 'bottombar.dart';
-import 'workout_category.dart';
-import 'widgets.dart';
+import 'package:pretty/screens/home/routinebuilder.dart';
+import 'screens/home/profile_screen.dart';
+import 'screens/home/login.dart';
+import 'screens/home/home.dart';
+import 'screens/home/routinebuilder.dart';
+import 'screens/home/bottombar.dart';
+import 'screens/home/workout_category.dart';
+import 'screens/home/widgets.dart';
 
 void main() {
   runApp(MyApp());
