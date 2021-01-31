@@ -5,6 +5,7 @@ import 'globals.dart' as globals;
 import 'workout_category.dart';
 import 'constants.dart';
 
+//card to display workout categories
 class CategoryCard extends StatefulWidget {
   final dynamic card;
   const CategoryCard(this.card);
@@ -50,6 +51,7 @@ class _CategoryCardState extends State<CategoryCard> {
   }
 }
 
+//card to display individual workouts
 class WorkoutCard extends StatefulWidget {
   final Workout workout;
   const WorkoutCard(this.workout);
@@ -100,6 +102,7 @@ class _WorkoutCardState extends State<WorkoutCard> {
   }
 }
 
+//card to display routines in home screen
 class RoutineCard extends StatefulWidget {
   final Workout workout;
   const RoutineCard(this.workout);

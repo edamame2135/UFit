@@ -6,6 +6,7 @@ import 'globals.dart' as globals;
 import 'widgets.dart';
 import 'constants.dart';
 
+//display workouts within each category
 class WorkoutCatelog extends StatefulWidget {
 
   final String category;

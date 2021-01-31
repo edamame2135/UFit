@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pretty/services/auth.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -6,6 +7,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  // background of login screen
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +48,9 @@ class LoginField extends StatefulWidget {
 }
 
 class _LoginFieldState extends State<LoginField> {
+  final AuthService _auth = AuthService();
   bool _visibletag = false;
+  //stuff for user input 
   final usercontroller = TextEditingController();
   final passcontroller = TextEditingController();
   @override
@@ -88,6 +92,7 @@ class _LoginFieldState extends State<LoginField> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            //login fields
             Text('Login',
                 style: TextStyle(
                     fontSize: 25,
@@ -144,6 +149,7 @@ class _LoginFieldState extends State<LoginField> {
                 SizedBox(
                   width: 30,
                 ),
+                //sign in buttons
                 RaisedButton(
                   onPressed: () {
                     String username = usercontroller.text;
@@ -163,6 +169,21 @@ class _LoginFieldState extends State<LoginField> {
                   child: Text('Sign In'
                   ),
                 ),
+                RaisedButton(
+                  onPressed: () async {
+                    dynamic result = await _auth.signInAnon();
+                    if (result == null) {
+                      print('error signing in');
+                    }
+                    else {
+                      print('signed in');
+                      print(result.uid);
+                    }
+                  },
+                  color: Colors.red,
+                  child: Text('Sign in anon'
+                  ),
+                )
               ],
             ),
           ],

@@ -1,3 +1,4 @@
+//workout constants
 const WORKOUT_DATA = [
   {
     "name": "What's Hot",

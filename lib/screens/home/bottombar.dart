@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pretty/services/auth.dart';
 import 'home.dart';
 import 'routinebuilder.dart';
 import 'profile_screen.dart';
@@ -24,7 +25,25 @@ class _BotBarState extends State<BotBar> {
   
   @override
   Widget build(BuildContext context) {
+    //get authentication to enable sign-out
+    final AuthService _auth = AuthService();
+
     return Scaffold(
+      //sign out button
+      appBar: AppBar(
+        title: Text('UFit'),
+        backgroundColor: Colors.pink,
+        actions: <Widget>[
+          FlatButton.icon(
+            icon: Icon(Icons.person),
+            label: Text('logout'),
+            onPressed: () async {
+              await _auth.signOut();
+            }
+            )
+        ]
+      ),
+      //bottom navigation bar
       body: _children[_currentIndex],
       bottomNavigationBar: ClipRRect(
         borderRadius: BorderRadius.vertical(top: Radius.circular(50)),

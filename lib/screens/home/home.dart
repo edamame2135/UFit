@@ -12,7 +12,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   
   List<Widget> routine = [];
-
+  //get routines from user
   void getRoutine() {
     List<Workout> myRoutine = globals.itemsData;
     List<Widget> temp = [];
@@ -52,6 +52,7 @@ class _HomeState extends State<Home> {
                   padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
                   child: SafeArea(
                     child: Column(
+                      //display profile image and name
                       children: <Widget>[
                         SizedBox(height: 20.0),
                         CircleAvatar(
@@ -76,6 +77,7 @@ class _HomeState extends State<Home> {
               color: Colors.red,
               height: height * 0.6,
               child: Column(
+                // display user's routine
                 children: <Widget>[
                   Expanded(
                     child: ListView.builder(

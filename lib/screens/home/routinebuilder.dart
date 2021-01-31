@@ -20,7 +20,7 @@ class RoutineScroll extends StatefulWidget {
 }
 
 class _RoutineScrollState extends State<RoutineScroll> {
-
+  //display workout lists
   final CategoriesScroller categoriesScroller = CategoriesScroller();
   List<Widget> itemsData = [];
 
@@ -63,7 +63,7 @@ class _RoutineScrollState extends State<RoutineScroll> {
 
 class CategoriesScroller extends StatelessWidget {
   const CategoriesScroller();
-
+  //horizontal scrolling thingy
   @override
   Widget build(BuildContext context) {
     final double categoryHeight =

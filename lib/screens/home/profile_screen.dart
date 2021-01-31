@@ -31,13 +31,16 @@ class ProfileScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: <Widget>[
                             IconButton(
-                              icon: Icon(Icons.settings)
+                              icon: Icon(Icons.settings),
+                              onPressed: () => {
+                              },
                             ),
                         
                           ],
                         ),
                         Row(
                           children: [
+                            //display profile picture
                             Container(               
                               color: Colors.white,
                               height: height * 0.17,
@@ -69,6 +72,7 @@ class ProfileScreen extends StatelessWidget {
             ),
           ),
           Positioned(
+            //display important user data
             top: height * 0.38,
             left: 0,
             right: 0,
