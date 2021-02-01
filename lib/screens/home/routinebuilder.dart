@@ -3,7 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/foundation.dart';
 import 'package:pretty/screens/home/widgets.dart';
 import 'bottombar.dart';
-import 'constants.dart';
+import '../../shared/constants.dart';
 import 'globals.dart' as globals;
 
 class RoutineBuilderScreen extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'bottombar.dart';
-import 'constants.dart';
+import 'package:pretty/shared/constants.dart';
 import 'globals.dart' as globals;
 import 'widgets.dart';
 

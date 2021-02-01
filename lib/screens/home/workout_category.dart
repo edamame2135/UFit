@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:pretty/screens/home/widgets.dart';
 import 'globals.dart' as globals;
 import 'widgets.dart';
-import 'constants.dart';
+import '../../shared/constants.dart';
 
 //display workouts within each category
 class WorkoutCatelog extends StatefulWidget {

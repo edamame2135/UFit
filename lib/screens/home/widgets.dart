@@ -3,7 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/foundation.dart';
 import 'globals.dart' as globals;
 import 'workout_category.dart';
-import 'constants.dart';
+import '../../shared/constants.dart';
 
 //card to display workout categories
 class CategoryCard extends StatefulWidget {
