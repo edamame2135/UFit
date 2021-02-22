@@ -25,26 +25,27 @@ const WORKOUT_DATA = [
 const WORKOUT_CATELOG = 
 {
   "What's Hot": [
-    Workout("Bench Press", "Push bar up i guess", "path")
+    Workout(1, "Bench Press", "Push bar up i guess", "path")
   ],
   "Cardio": [
-    Workout("Running", "run i guess", "path")
+    Workout(2, "Running", "run i guess", "path")
   ],
   "Weight Training": [
-    Workout("Curls", "lift", "path")
+    Workout(3, "Curls", "lift", "path")
   ],
   "Sports": [
-    Workout("Football", "footbal", "path")
+    Workout(4, "Football", "footbal", "path")
   ],
   "Flexibility Training": [
-    Workout("Butterflies", "stretchyy", "path")
+    Workout(5, "Butterflies", "stretchyy", "path")
   ],
 };
 
 class Workout {
+  final int wid; // workout id
   final String name;
   final String desc;
   final String imagepath;
 
-  const Workout(this.name, this.desc, this.imagepath);
+  const Workout(this.wid, this.name, this.desc, this.imagepath);
 }
