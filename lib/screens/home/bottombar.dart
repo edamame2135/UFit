@@ -3,6 +3,10 @@ import 'package:pretty/services/auth.dart';
 import 'home.dart';
 import 'routinebuilder.dart';
 import 'profile_screen.dart';
+import 'package:pretty/services/database.dart';
+import 'package:provider/provider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 
 class BotBar extends StatefulWidget {
   @override
@@ -28,50 +32,53 @@ class _BotBarState extends State<BotBar> {
     //get authentication to enable sign-out
     final AuthService _auth = AuthService();
 
-    return Scaffold(
-      //sign out button
-      appBar: AppBar(
-        title: Text('UFit'),
-        backgroundColor: Colors.pink,
-        actions: <Widget>[
-          FlatButton.icon(
-            icon: Icon(Icons.person),
-            label: Text('logout'),
-            onPressed: () async {
-              await _auth.signOut();
-            }
-            )
-        ]
-      ),
-      //bottom navigation bar
-      body: _children[_currentIndex],
-      bottomNavigationBar: ClipRRect(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(50)),
-        child: BottomNavigationBar(
-          iconSize: 30,
-          unselectedFontSize: 10,
-          unselectedIconTheme: IconThemeData(
-              color: Colors.black12
-          ),
-          selectedIconTheme: IconThemeData(
-              color: Colors.cyanAccent
-          ),
-          onTap: onTappedBar,
-          currentIndex: _currentIndex,
-          items: [
-            BottomNavigationBarItem(
-                icon: Icon(Icons.fitness_center),
-                title: Text('Create Routines')
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              title: Text('Home'),
-            ),
-            BottomNavigationBarItem(
+    return StreamProvider<QuerySnapshot>.value(
+        value: DatabaseService().workouts,
+        child: Scaffold(
+        //sign out button
+        appBar: AppBar(
+          title: Text('UFit'),
+          backgroundColor: Colors.pink,
+          actions: <Widget>[
+            FlatButton.icon(
               icon: Icon(Icons.person),
-              title: Text('My Profile'),
+              label: Text('logout'),
+              onPressed: () async {
+                await _auth.signOut();
+              }
+              )
+          ]
+        ),
+        //bottom navigation bar
+        body: _children[_currentIndex],
+        bottomNavigationBar: ClipRRect(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(50)),
+          child: BottomNavigationBar(
+            iconSize: 30,
+            unselectedFontSize: 10,
+            unselectedIconTheme: IconThemeData(
+                color: Colors.black12
             ),
-          ],
+            selectedIconTheme: IconThemeData(
+                color: Colors.cyanAccent
+            ),
+            onTap: onTappedBar,
+            currentIndex: _currentIndex,
+            items: [
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.fitness_center),
+                  title: Text('Create Routines')
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                title: Text('Home'),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person),
+                title: Text('My Profile'),
+              ),
+            ],
+          ),
         ),
       ),
     );

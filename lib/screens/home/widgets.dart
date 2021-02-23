@@ -84,7 +84,7 @@ class _WorkoutCardState extends State<WorkoutCard> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(widget.workout.name),
+                    Text(widget.workout.name), // display workout name
                   ],
                 ),
                 Material(
