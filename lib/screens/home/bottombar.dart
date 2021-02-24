@@ -6,7 +6,7 @@ import 'profile_screen.dart';
 import 'package:pretty/services/database.dart';
 import 'package:provider/provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
+import 'workout_list.dart';
 
 class BotBar extends StatefulWidget {
   @override
@@ -50,7 +50,8 @@ class _BotBarState extends State<BotBar> {
           ]
         ),
         //bottom navigation bar
-        body: _children[_currentIndex],
+        // body: _children[_currentIndex],
+        body: WorkoutList(),
         bottomNavigationBar: ClipRRect(
           borderRadius: BorderRadius.vertical(top: Radius.circular(50)),
           child: BottomNavigationBar(
@@ -67,15 +68,15 @@ class _BotBarState extends State<BotBar> {
             items: [
               BottomNavigationBarItem(
                   icon: Icon(Icons.fitness_center),
-                  title: Text('Create Routines')
+                  label: 'Create Routines'
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.home),
-                title: Text('Home'),
+                label: 'Home',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.person),
-                title: Text('My Profile'),
+                label: 'My Profile',
               ),
             ],
           ),

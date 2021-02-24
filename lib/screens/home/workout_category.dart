@@ -5,6 +5,7 @@ import 'package:pretty/screens/home/widgets.dart';
 import 'globals.dart' as globals;
 import 'widgets.dart';
 import '../../shared/constants.dart';
+import 'package:pretty/models/workout.dart';
 
 //display workouts within each category
 class WorkoutCatelog extends StatefulWidget {

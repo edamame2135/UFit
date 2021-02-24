@@ -1,3 +1,4 @@
+import 'package:pretty/models/workout.dart';
 //workout constants
 const WORKOUT_DATA = [
   {
@@ -25,27 +26,18 @@ const WORKOUT_DATA = [
 const WORKOUT_CATELOG = 
 {
   "What's Hot": [
-    Workout(1, "Bench Press", "Push bar up i guess", "path")
+    Workout(id: 1, name: "Bench Press", description: "Push bar up i guess", imagepath: "path")
   ],
   "Cardio": [
-    Workout(2, "Running", "run i guess", "path")
+    Workout(id: 2, name: "Running", description: "run i guess", imagepath:"path")
   ],
   "Weight Training": [
-    Workout(3, "Curls", "lift", "path")
+    Workout(id: 3, name: "Curls", description: "lift", imagepath: "path")
   ],
   "Sports": [
-    Workout(4, "Football", "footbal", "path")
+    Workout(id: 4, name: "Football", description: "footbal", imagepath: "path")
   ],
   "Flexibility Training": [
-    Workout(5, "Butterflies", "stretchyy", "path")
+    Workout(id: 5, name: "Butterflies", description: "stretchyy", imagepath: "path")
   ],
 };
-
-class Workout {
-  final int wid; // workout id
-  final String name;
-  final String desc;
-  final String imagepath;
-
-  const Workout(this.wid, this.name, this.desc, this.imagepath);
-}

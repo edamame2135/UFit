@@ -3,6 +3,7 @@ import 'bottombar.dart';
 import 'package:pretty/shared/constants.dart';
 import 'globals.dart' as globals;
 import 'widgets.dart';
+import 'package:pretty/models/workout.dart';
 
 
 class Home extends StatefulWidget {

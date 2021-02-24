@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../shared/constants.dart';
+import '../models/workout.dart';
 class DatabaseService {
 
   final String uid;
@@ -8,11 +8,24 @@ class DatabaseService {
   // collection reference
   final CollectionReference workoutCollection = FirebaseFirestore.instance.collection('workouts');
 
-  Future updateUserData(List<Workout> workout) async {
+  Future initUserData() async {
     return await workoutCollection.doc(uid).set({
-      'workouts': workout
+      'workouts': []
     });
   }
+
+  Future setUserData(int id, String name, String description, String imagepath) async {
+    return await workoutCollection.doc(uid).set({
+      'workouts': []
+    });
+  }
+
+  Future updateUserData(int id, String name, String description, String imagepath) async {
+    return await workoutCollection.doc(uid).update({
+      'workouts': FieldValue.arrayUnion([{id: 1, name: "bruhh"}])
+    });
+  }
+
 
   Stream<QuerySnapshot> get workouts {
     return workoutCollection.snapshots();

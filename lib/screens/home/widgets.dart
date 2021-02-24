@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'globals.dart' as globals;
 import 'workout_category.dart';
 import '../../shared/constants.dart';
+import 'package:pretty/models/workout.dart';
 
 //card to display workout categories
 class CategoryCard extends StatefulWidget {
@@ -138,7 +139,7 @@ class _RoutineCardState extends State<RoutineCard> {
                     Text(widget.workout.name),
                   ],
                 ),
-                Text(widget.workout.desc),
+                Text(widget.workout.description),
               ]),
         ),
       ),
